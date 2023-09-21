@@ -60,14 +60,14 @@ class ProductManager {
     
         const productIndex = this.products.findIndex((product) => product.id === id);
         
-           if (productIndex !== -1) {
-             this.products[productIndex] = { ...this.products[productIndex], ...updateData };
-             const productsJSON = JSON.stringify(this.products, null, 2);
-             fs.writeFileSync(this.path, productsJSON, 'utf-8');
-             console.log("Product actualizado correctamente");
-           } else {
-              console.log("Product no encontrado");
-           } 
+        if (productIndex !== -1) {
+           this.products[productIndex] = { ...this.products[productIndex], ...updateData };
+           const productsJSON = JSON.stringify(this.products, null, 2);
+           fs.writeFileSync(this.path, productsJSON, 'utf-8');
+           console.log("Product actualizado correctamente");
+        } else {
+            console.log("Product no encontrado");
+        } 
       }
      
 
